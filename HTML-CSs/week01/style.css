@@ -1,0 +1,175 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: silver;
+    display: flex;
+   flex-direction: column;
+    gap: 1rem;
+   height: auto;
+  align-items: center;
+  justify-content: center;
+   border: 3px solid black;
+   overflow: auto;
+}
+.header{
+    border: 3px solid black;
+    width: 60rem;
+    height: 26rem;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    box-shadow: 0 35px 55px rgb(0, 0, 0,1);
+    background-color: silver;
+    
+}
+h1 {
+    width: 100%; 
+     text-align: center;
+     color : rgb(36, 35, 35);
+     text-shadow: 1px 1px 2px rgb(104, 82, 82), 0 0 35px rgb(79, 45, 78), 0 0 5px rgb(136, 136, 198); 
+}
+
+.imgbox{
+     width: 40%; 
+}
+
+img{
+   
+    width: 70%;
+    box-shadow: 0 30px 60px rgb(0, 0, 0,1);
+    border: 3px solid rgb(35, 34, 34);
+    background-color: silver;
+    margin: 1rem;
+    border-radius: 55%;
+    align-content: center;
+    
+}
+.profiletext{
+    color: rgb(30, 30, 56);
+    font-size: x-large;
+    font-weight: bolder;
+    padding-left: 5rem;
+  
+
+}
+.header > p{
+   width: 60%;
+   padding: 8rem 1rem 5rem 1rem;
+    font-size: large;
+    
+}
+.main{
+    width: 60rem;
+    
+    display: flex;
+    flex-direction: row;
+    gap : 1rem;
+}
+.left{
+    border-radius: 20px;
+    box-shadow: 0 35px 55px rgb(0, 0, 0,1);
+    background-color: silver;
+    border: 3px solid black;
+    width: 30%;
+    padding: 0,5rem;
+   display: flex;
+   flex-direction: column;
+   gap: 2rem;
+   
+}
+.address {
+    margin-top: 1rem;
+    margin-left: 0px;
+    padding: 1rem;
+}
+h2 {
+    text-align: left;
+    margin-bottom: 1rem;
+    padding: 5px;
+    text-decoration: underline solid 2px;
+}
+.address a{
+    font-style: italic;
+}
+
+.address .fa-linkedin-square{ 
+    padding: 1px;
+    font-size:18px;
+    text-decoration: 2px solid blue;
+}
+a:link ,a:visited{
+    color: blue;
+  } 
+a:hover {
+    color: gray;
+  }
+  .skills{
+    margin-top: 3rem;
+    padding: 1rem;
+}
+.skills > ul ,li {
+    margin: 1rem; 
+}
+.language-lists {
+    margin: 1rem 10px 20px 10px;
+   padding: 10px;
+}
+.language > h2 {
+    text-align: left;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-decoration: underline 2px solid black;
+}
+ a[href^='mailto']::before {
+        content: '📧 ';
+      }
+ a[href^='tel']::before {
+        content: '📞 ';
+      }  
+.right{
+    border-radius: 20px;
+    box-shadow: 0 35px 55px rgb(0, 0, 0,1);
+    background-color: silver;
+    border: 3px solid black;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+
+}
+.details > summary{
+    margin-top: 10px;
+    padding: 5px;
+    font-weight: bolder;
+}
+.experinces > li > time {
+    font-weight: bolder;
+}
+table{
+    border: 3px solid black;
+    border-radius: 10px;
+
+}
+th, td {
+    border-radius: 3px;
+    background-color: #a6a5a5;
+     padding: 5px;
+     border: 1px solid black;
+     border-collapse: collapse;
+ }
+  th {
+     background-color: rgb(211, 208, 208);
+     height: 20px;
+     font-size: large;
+ }
+ tr:hover td{
+     background-color: silver;
+ }
