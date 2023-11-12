@@ -1,1 +1,1 @@
-https://github.com/NailaLissa/nailaalissa.github.io.git
+https://nailaalissa.github.io/HTML-CSs/week02/
