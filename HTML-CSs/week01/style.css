@@ -6,31 +6,33 @@
 
 .body{
     font-family: Arial, Helvetica, sans-serif;
-    background-color: silver;
+    background-color: gray;
     display: flex;
    flex-direction: column;
     gap: 1rem;
    height: auto;
-  align-items: center;
-  justify-content: center;
+   align-items: center;
+   justify-content: center;
    border: 3px solid black;
    overflow: auto;
+   
 }
 .header{
     border: 3px solid black;
     width: 60rem;
-    height: 26rem;
+    height: auto;
     padding-top: 1rem;
+    margin-top: 5px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     border-radius: 20px;
     box-shadow: 0 35px 55px rgb(0, 0, 0,1);
-    background-color: silver;
+    background-color: rgb(218, 214, 214);
     
 }
 h1 {
-    width: 100%; 
+     width: 100%; 
      text-align: center;
      color : rgb(36, 35, 35);
      text-shadow: 1px 1px 2px rgb(104, 82, 82), 0 0 35px rgb(79, 45, 78), 0 0 5px rgb(136, 136, 198); 
@@ -38,18 +40,18 @@ h1 {
 
 .imgbox{
      width: 40%; 
+  
 }
 
 img{
-   
-    width: 70%;
+    object-fit: cover;
+    width: 65%;
     box-shadow: 0 30px 60px rgb(0, 0, 0,1);
     border: 3px solid rgb(35, 34, 34);
     background-color: silver;
     margin: 1rem;
     border-radius: 55%;
-    align-content: center;
-    
+
 }
 .profiletext{
     color: rgb(30, 30, 56);
@@ -62,15 +64,16 @@ img{
 .header > p{
    width: 60%;
    padding: 8rem 1rem 5rem 1rem;
-    font-size: large;
+   font-size: large;
     
 }
 .main{
     width: 60rem;
-    
     display: flex;
     flex-direction: row;
     gap : 1rem;
+    padding: 0;
+   
 }
 .left{
     border-radius: 20px;
@@ -78,11 +81,12 @@ img{
     background-color: silver;
     border: 3px solid black;
     width: 30%;
-    padding: 0,5rem;
+    padding: 1rem;
+    margin: 0;
    display: flex;
    flex-direction: column;
    gap: 2rem;
-   
+   background-color: rgb(218, 214, 214);
 }
 .address {
     margin-top: 1rem;
@@ -143,7 +147,7 @@ a:hover {
     flex-direction: column;
     gap: 1rem;
     padding: 2rem;
-
+    background-color: rgb(218, 214, 214);
 }
 .details > summary{
     margin-top: 10px;
@@ -173,3 +177,51 @@ th, td {
  tr:hover td{
      background-color: silver;
  }
+
+ @media screen and (max-width: 995px) {
+  html{
+    font-size: 12px;
+  }
+   
+    .header {
+        width: 95%;
+       p{
+        font-size: 12px;
+       }
+    }
+.main{
+    width: 95%;
+    padding: 2px;
+
+}
+    .left{
+        width: 40%;
+        height: auto;
+        
+    }
+    .right {
+        width: 58%; 
+        height: auto;/* Adjust as needed */   
+}
+
+.training{
+    overflow-x: hidden;
+}
+.table{
+   
+    tr th:nth-child(4), tr td:nth-child(4),
+    tr th:nth-child(5), tr td:nth-child(5)
+    {
+        display: none;
+    }
+}
+ }
+@media screen and (max-width:530px){
+    .table{
+        tr th:nth-child(2), tr td:nth-child(2),
+        tr th:nth-child(3), tr td:nth-child(3)
+        {
+            display: none;
+        }
+    }
+}
