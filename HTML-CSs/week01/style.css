@@ -177,3 +177,51 @@ th, td {
  tr:hover td{
      background-color: silver;
  }
+
+ @media screen and (max-width: 995px) {
+  html{
+    font-size: 12px;
+  }
+   
+    .header {
+        width: 95%;
+       p{
+        font-size: 12px;
+       }
+    }
+.main{
+    width: 95%;
+    padding: 2px;
+
+}
+    .left{
+        width: 40%;
+        height: auto;
+        
+    }
+    .right {
+        width: 58%; 
+        height: auto;/* Adjust as needed */   
+}
+
+.training{
+    overflow-x: hidden;
+}
+.table{
+   
+    tr th:nth-child(4), tr td:nth-child(4),
+    tr th:nth-child(5), tr td:nth-child(5)
+    {
+        display: none;
+    }
+}
+ }
+@media screen and (max-width:530px){
+    .table{
+        tr th:nth-child(2), tr td:nth-child(2),
+        tr th:nth-child(3), tr td:nth-child(3)
+        {
+            display: none;
+        }
+    }
+}
