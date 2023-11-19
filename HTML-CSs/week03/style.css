@@ -107,7 +107,6 @@
         color: white;
         float: right;
         margin-right: 40px;
-      
         cursor: pointer;
         display: none;
     }
@@ -115,7 +114,7 @@
         display: none;
     }
  #searchForm {
-   width: 400px;
+width: 400px;
  position: relative;
  left: 65%;
  top: calc(1rem + 10px);
@@ -251,12 +250,14 @@
     font-family: inherit;
     list-style: disc;
   }
+  .topTaskNav ul a{ 
+    color: #01689b;
+
+  }
   .topTaskNav ul a:hover{
     color: #848;
   }
-  .topTaskNav ul a:visited {
-    color: #848;
-}
+
 .topTaskNavigation ul a:before {
     display: inline-flex;
     align-items: center;
@@ -500,8 +501,8 @@ padding: 1rem;
 
 }
 .banner{
-    width: 25%;
-    height: 170px;
+    width: 30%;
+margin: 1rem;
     border: 1px solid gray;
   
 }
@@ -514,7 +515,29 @@ padding: 1rem;
     padding: 1rem;
    color: #01689b;
 }
-
+.banner a  .box1{
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+.banner a  .box1 + text + text ,.banner a  .box1 + text{
+    color: black;
+    font-size: 2rem;
+}
+.banner a  .box1 + text + text + text{
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+.banner a .box2{
+    color: black;
+    font-size: 2rem;
+    font-weight: normal;
+    margin: 1rem;
+}
+.banner a .box2 + text, .banner a .box2 + text + text{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: maroon;
+}
 a:visited {
     color: #848;
 }
@@ -649,6 +672,7 @@ gap: 1rem;
             background-color: #01689b;
           color : black;
         }
+      
         
 @media (max-width: 722px) {
   .checkbtn{
