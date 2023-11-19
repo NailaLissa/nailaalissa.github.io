@@ -254,9 +254,9 @@
   .topTaskNav ul a:hover{
     color: #848;
   }
-  /*.topTaskNav ul a:visited {
+  .topTaskNav ul a:visited {
     color: #848;
-}*/
+}
 .topTaskNavigation ul a:before {
     display: inline-flex;
     align-items: center;
@@ -571,8 +571,8 @@ gap: 1rem;
         line-height: 19.2px;
         font-weight: normal;
         margin: 1rem;
-    width: 100%;
-    padding: 5px;
+       width: 100%;
+       padding: 5px;
     }
     .column ul li a{
         color: white;
@@ -588,52 +588,55 @@ gap: 1rem;
         margin-right: 0.2em; 
     }
     .languages{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+       
+       margin-left: 0;
         width: 100%;
         background-color: #fff;
     }
-.languages__wrapper{
-    width: 90%;
-
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    text-align: center;
+.languages__wrapper{      
+ width: 100%; 
+ margin: 1rem;
+ font-size: 1.6rem;
+   
 }
   .languages__list{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-left: 1rem;
     margin-bottom: 1rem;
     max-height: 45px;
-  
+    
   }     
 
  .languageMenuLabel{
             margin: 1rem;
             width: 100%;
             text-align: left;
-            
         }
         .languages__list-item{
             display: inline-block;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    border: 1px solid #01689b;
-    
+            height: 30%;
+           padding: 0.5rem 1rem;
+         text-decoration: none;
+         border: 1px solid #01689b;
         }
-        .languages__list-item:hover{
-            background-color: #01689b;
-          color : black;
-        }
+   .languages__wrapper p{
+    padding: 1rem;
+   }   
         .languages__list-item a{
             text-decoration: none;
             
         }
         .languages__list-item:hover{
+          background-color: #01689b;
+           color : black;
+      }
+        .languages__list-item a:hover{
             background-color: #01689b;
-          color : black;
+             color : black;
         }
+     
        .selected{
             background-color: #aec3ce;
             font-weight: bold;
@@ -646,4 +649,84 @@ gap: 1rem;
             background-color: #01689b;
           color : black;
         }
+        
+@media (max-width: 722px) {
+  .checkbtn{
+  display: block;
+ 
+  }
+  input, select {
+      text-transform: none;
+    }
+  .checkbtn::after {
+      content: "";
+      font-family: "RO Icons";
+      font-size: inherit;
+      font-weight: normal;
+      line-height: inherit;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-start: 0;
+      width: 100%;
+      -webkit-transition: color .3s ease;
+      transition: color .3s ease;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      text-align: center;
+      text-indent: 0;
+    }
+ /*
+  .navTop ul{
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      top: 80px;
+      text-align: center;
+     right: -100%;
+     transition: all .5s;
+  
+  }
+
+  .topMenu ul li{
      
+      margin: 50px 0;
+      display: block;
+   align-items: center;
+
+  }
+  .topMenu ul li a{
+      display: inline-block;
+      font-size: 20px;
+      color: black;
+      text-align: center;
+      transition: 0.15s case ease-in-out;
+      position: relative;
+  }
+  #check:checked ~ .mainNav{
+      height: auto;
+  }
+  #check:checked ~ul{
+      right: 0;
+   
+  }
+ .mainNav #check:checked + .topMenu {
+background-color: #01689b;
+width: 100px;
+height: 100px;
+  }*/
+  .mainNav #check:checked + .topMenu > i{
+      transform: rotate(135deg);
+  }
+  #searchForm {
+    position: absolute;
+    z-index: 100;
+    top: 11px;
+    right: 16px;
+    flex-grow: 0;}
+}
+
+        
+          
+       
