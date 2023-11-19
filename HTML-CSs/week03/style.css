@@ -53,13 +53,17 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+        
+        
     }
     .home{
        width: 30%;
         line-height: 60px;
        padding: 1rem;
        font-size: 1.6018066406rem;
-  line-height: 1.0925163847;
+      line-height: 1.0925163847;
+      color: white;
+    
      
     }
     .home a{
@@ -67,7 +71,7 @@
         text-decoration: none;
     }
    .mainNav{
-      margin-top: 0.5rem;
+    margin-top: 0.5rem;
     width: 70%;
     font-size: 1.6rem;
     line-height: 60px;
