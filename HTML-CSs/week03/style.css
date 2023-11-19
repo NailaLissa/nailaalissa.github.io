@@ -67,6 +67,7 @@
         text-decoration: none;
     }
    .mainNav{
+      margin-top: 0.5rem;
     width: 70%;
     font-size: 1.6rem;
     line-height: 60px;
