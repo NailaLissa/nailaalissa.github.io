@@ -254,9 +254,8 @@
   .topTaskNav ul a:hover{
     color: #848;
   }
-  .topTaskNav ul a:visited {
-    color: #848;
-}
+  
+
 .topTaskNavigation ul a:before {
     display: inline-flex;
     align-items: center;
