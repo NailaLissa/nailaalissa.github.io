@@ -45,9 +45,101 @@ figure {
    position: relative;
   left: 32px;
     }
+<<<<<<< HEAD
 figure img{
  height: 7rem;
  width: 6rem;
+=======
+    .logo img{
+        margin-left: 8rem;
+    }
+    .logo figcaption{
+        margin-left: 1rem;
+        font-size: smaller;
+    }
+    .navContainer{
+        background-color: #01689b;
+        width: 100%;
+       
+        justify-content: center;
+        display: flex;
+        
+        
+    }
+    .navTop{
+        height: 5rem;
+        width: 95%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        
+        
+    }
+    .home{
+       width: 30%;
+        line-height: 60px;
+       padding: 1rem;
+       font-size: 1.6018066406rem;
+      line-height: 1.0925163847;
+      color: white;
+    
+     
+    }
+    .home a{
+        color: white;
+        text-decoration: none;
+    }
+   .mainNav{
+    margin-top: 0.5rem;
+    width: 70%;
+    font-size: 1.6rem;
+    line-height: 60px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+   
+   }
+  .home > a:hover, .mainNav ul li >a:hover{
+    text-decoration: underline;
+  }
+    .mainNav ul{
+        float: right;
+        display: flex;
+        gap: 1rem;
+           
+    }
+    .topMenu ul li{
+        line-height: 60px;
+        margin: 0 10px;
+        padding: 1rem;
+    }
+    .topMenu a{
+        color: white;
+        font-size: 1.265625rem;
+        line-height: 1.3827160494;
+        display: inline-block;
+  padding: 1rem 0.25rem;
+  text-decoration: none;
+    }
+    a.active,a:hover{
+        transition: 0,5s;
+
+    }
+   
+    .checkbtn{
+        font-size: 30px;
+        color: white;
+        float: right;
+        margin-right: 40px;
+        cursor: pointer;
+        display: none;
+    }
+    #check{
+        display: none;
+    }
+ #searchForm {
+width: 400px;
+>>>>>>> e451e65ca4dc3bb279f3cce9ed7e14c735d88269
  position: relative;
  top: -1.5rem;
  right: -1.3rem;
@@ -953,12 +1045,326 @@ margin-left: 70%;
     cursor: pointer;
     border-radius: 5px;
     font-size: 1.5rem;
+<<<<<<< HEAD
     width: 20%;
+=======
+    
+}
+.wrapper button:hover{
+    transform: scale(1.02) 
+}
+.brickRow{
+    width: 100%;
+    
+    display: flex;
+    flex-wrap: wrap;
+    margin : 1rem 1rem 1rem 2rem;
+    gap: 1rem;
+  
+}
+.brickRow h2{
+    width: 100%;
+   
+}
+.brick{
+    width: 30.3%;
+   
+    
+}
+.brick a {
+    text-decoration: none;
+}
+.brick h3:hover{
+    text-decoration: underline;
+    color: #848;
+}
+.brick h3 {
+    font-size: 1.5018066406rem;
+    line-height: 1.2485901539;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    margin: 0.5rem 0rem 1rem 0rem;
+    
+    }
+   
+    .brickRow .brick h3::before{
+        content: "↗";
+        margin-right: 0.2em; 
+    }
+   
+    .brick .img-container {
+        margin: 0 0 1rem;
+        position: relative;
+        
+    }
+.brick img{
+    max-width: 100%;
+    position: relative;
+
+    margin: 0 0 1rem 0;
+    line-height: 0;
+}
+.brick-text{
+    color: black;
+    text-decoration: none;
+}
+.news{
+    
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 4rem 2rem;
+    padding: 2rem;
+    border-top: 1px solid gray;
+    gap: 1rem;
+}
+.news h2{
+    width: 100%;
+}
+.news .more{
+    width: 100%;
+    margin-top: 1rem;
+    padding-left: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+.more::before{
+    content: " > ";
+    margin-right: 0.2em; 
+}
+.aside{
+   margin: 1rem;
+    display: flex;
+ flex-wrap: wrap;
+    gap: 1rem;
+
+}
+.banner{
+    width: 30%;
+margin: 1rem;
+    border: 1px solid gray;
+  
+}
+.banner a{
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+   color: #01689b;
+}
+.banner a  .box1{
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+.banner a  .box1 + text + text ,.banner a  .box1 + text{
+    color: black;
+    font-size: 2rem;
+}
+.banner a  .box1 + text + text + text{
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+.banner a .box2{
+    color: black;
+    font-size: 2rem;
+    font-weight: normal;
+    margin: 1rem;
+}
+.banner a .box2 + text, .banner a .box2 + text + text{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: maroon;
+}
+
+
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    background-color: #01689b;
+}
+.footer>.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    
+gap: 1rem;
+}
+    .payoff{
+      flex-basis: 60%;
+       
+    }
+    .payoff span{
+        color: white;
+        color: #fff;
+        font-family: "RO Serif";
+        font-size: 2.0272865295rem;
+        line-height: .9865403685;
+        font-weight: normal;
+        font-style: italic;
+        padding: 4rem;
+    }
+    .column{
+        width: 16%;
+       
+        position: relative;
+        color: white;
+    }
+    .footer .column h2 {
+        font-size: 1.6018066406rem;
+        line-height: 1.2485901539;
+        font-weight: normal;
+        margin-bottom: 1rem;
+    }
+    .column ul {
+        padding: 0;
+        list-style-type: none;
+
+    }
+    .column ul li{
+        font-size: 1.125rem;
+        line-height: 19.2px;
+        font-weight: normal;
+        margin: 1rem;
+       width: 100%;
+       padding: 5px;
+    }
+    .column ul li a{
+        color: white;
+        width: 100%;
+        text-decoration: none;
+        line-height: 19.2px;
+    }
+    .column ul li a:hover{
+        text-decoration: underline;
+    }
+    .column ul li a::before{
+        content: " > ";
+        margin-right: 0.2em; 
+    }
+    .languages{
+       
+       margin-left: 0;
+        width: 100%;
+        background-color: #fff;
+    }
+.languages__wrapper{      
+ width: 100%; 
+ margin: 1rem;
+ font-size: 1.6rem;
+   
+}
+  .languages__list{
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    max-height: 45px;
+    
+  }     
+
+ .languageMenuLabel{
+            margin: 1rem;
+            width: 100%;
+            text-align: left;
+        }
+        .languages__list-item{
+            display: inline-block;
+            height: 30%;
+           padding: 0.5rem 1rem;
+         text-decoration: none;
+         border: 1px solid #01689b;
+        }
+   .languages__wrapper p{
+    padding: 1rem;
+   }   
+        .languages__list-item a{
+            text-decoration: none;
+            
+        }
+        .languages__list-item:hover{
+          background-color: #01689b;
+           color : black;
+      }
+        .languages__list-item a:hover{
+            background-color: #01689b;
+             color : black;
+        }
+     
+       .selected{
+            background-color: #aec3ce;
+            font-weight: bold;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border: 1px solid #01689b;
+        }
+        .selected:hover{
+            background-color: #01689b;
+          color : black;
+        }
+      
+        
+@media (max-width: 722px) {
+  .checkbtn{
+  display: block;
+>>>>>>> e451e65ca4dc3bb279f3cce9ed7e14c735d88269
  
   }
   .wrapper button:hover{
     transform: scale(1.02) 
   }
 
+<<<<<<< HEAD
  
 }
+=======
+  .topMenu ul li{
+     
+      margin: 50px 0;
+      display: block;
+   align-items: center;
+
+  }
+  .topMenu ul li a{
+      display: inline-block;
+      font-size: 20px;
+      color: black;
+      text-align: center;
+      transition: 0.15s case ease-in-out;
+      position: relative;
+  }
+  #check:checked ~ .mainNav{
+      height: auto;
+  }
+  #check:checked ~ul{
+      right: 0;
+   
+  }
+ .mainNav #check:checked + .topMenu {
+background-color: #01689b;
+width: 100px;
+height: 100px;
+  }*/
+  .mainNav #check:checked + .topMenu > i{
+      transform: rotate(135deg);
+  }
+  #searchForm {
+    position: absolute;
+    z-index: 100;
+    top: 11px;
+    right: 16px;
+    flex-grow: 0;}
+}
+
+        
+          
+       
+>>>>>>> e451e65ca4dc3bb279f3cce9ed7e14c735d88269
