@@ -2,14 +2,17 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Informatie van de Rijksoverheid | Rijksoverheid.nl</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
     <link rel="stylesheet" href="style.css" type="text/css" media="all"/>
+    
+  
+    
 </head>
 <body>
 <div class="container">
     <header>
-        <figure class="logo">
-            <img src="images/beeldmerk-rijksoverheid-desktop.svg" alt="logo"/>
+        <figure >
+            <img src="images/beeldmerk-rijksoverheid-desktop.svg" alt="Logo Rijksoverheid"/>
              <figcaption> Rijksoverheid</figcaption>  
         </figure>
     </header>
@@ -21,8 +24,8 @@
                 <a href="/">Home</a>
             </nav>
             <nav class="mainNav">
-                <input type="checkbox" id="check">
-                <label for="check" class="checkbtn"><i class="fa fa-bars" style="font-size:36px"></i></label>
+                <div class="hidden"><input type="checkbox" id="check">
+                <label for="check" class="checkbtn"><i class="fa fa-bars" style="font-size:20px"></i></label></div>
             <ul class="topMenu" >
         
                 <li>
@@ -44,10 +47,10 @@
                 
             </nav>
           <div id="searchForm">
-            <form action="/search" method="get">
+            <form >
                 <div class="search-bar">
-                  <input type="text" name="q" placeholder="Zoeken..." />
-                  <button type="submit"><img src="images/icon2.png" alt="Search" /></button>
+                  <input type="text" name="q" placeholder="Zoeken" />
+                  <button type="submit"></button>
                 </div>
               </form>
            </div>
@@ -66,6 +69,7 @@
                 <h2>Veel bekeken</h2>
                 <ul>
                    <li>
+                    
                     <a href="/onderwerpen/verkiezingen"><strong>&#62;</strong> Verkiezing Tweede Kamer</a>
                     </li>
                     <li>
@@ -222,28 +226,24 @@
         <section class="brickRow">
                     <h2>Direct naar</h2>
                     <div class="brick">
-                        <a href="https://mijnvraagovercorona.nl/nl/vaccineren/alles-over-de-coronaprik" >
-                           
-                            <div class="brick-image">
-                              <figure class="img-container">
+                        <a href="https://mijnvraagovercorona.nl/nl/vaccineren/alles-over-de-coronaprik" > 
+                        
                                 <img src="images/alles-over-corona-1.png" alt="">
-                                </figure>
-                            </div>
-                            <h3> Alles over de coronaprik</h3>
-                        <div class="brick-text">
+                                                    
+                                <h3> Alles over de coronaprik</h3>
+                              <div class="brick-text">
                                 <p>60-plussers, risicogroepen en sommige zorgmedewerkers kunnen weer een coronaprik halen. Lees de veelgestelde vragen.</p>
-                            </div>
-                        </a>
+                              </div>
+                           </a>
                     </div>
                     <div class="brick">
                         <a href="/onderwerpen/verkiezingen/vraag-en-antwoord/iemand-machtigen-om-te-stemmen-bij-verkiezingen" >
                            
-                            <div class="brick-image">
-                              <figure class="img-container">
+                         
+                         
                                 <img src="images/machtigen-3x2.jpg" alt="">
                 
-                                </figure>
-                            </div>
+                             
                             <h3>Iemand machtigen</h3>
                         <div class="brick-text">
                                 <p>
@@ -254,11 +254,9 @@
                     <div class="brick">
                         <a href="https://www.huiselijkgeweld.nl/vormen" >
                       
-                            <div class="brick-image">
-                              <figure class="img-container">
+                           
                                 <img src="images/huiselijk-geweld.jpg" alt="">
-                                </figure>
-                            </div>
+                          
                             <h3>Huiselijk geweld</h3>
                         <div class="brick-text">
                                 <p>
@@ -271,9 +269,7 @@
                 <h2>Nieuws</h2>
                 <div class="brick">
                     <a href="/actueel/nieuws/2023/11/17/onderhandelaarsakkoord-nieuwe-politie-cao">
-                      <h3>
-                  
-                        Onderhandelaarsakkoord nieuwe politie-cao</h3>
+                      <h3>Onderhandelaarsakkoord nieuwe politie-cao</h3>
                       <div class="brick-text">
                           <p>
                             <span class="publDate">17-11-2023 | 17:00</span>
@@ -443,7 +439,7 @@
         </div>
         <nav class="languages" aria-labelledby="languageMenuLabel">
             <div class="languages__wrapper">
-              <p id="languageMenuLabel" class="languages__label">Deze website in andere talen:</p>
+              <p id="languageMenuLabel" >Deze website in andere talen:</p>
               <ul class="languages__list">
             <li class="languages__list-item selected"> Nederlands</li>
             <li class="languages__list-item">
