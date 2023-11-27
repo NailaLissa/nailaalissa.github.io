@@ -1,12 +1,4 @@
-@font-face {
-  font-family: myFont;
-  src: url(/fonts/calibril.ttf);
-}
 
-@font-face {
-  font-family: secondFont;
-  src: url(/fonts/RopaSans-Regular.ttf);
-}
 *{
         margin: 0;
         padding: 0;
@@ -45,11 +37,8 @@ figure {
    position: relative;
   left: 32px;
     }
-<<<<<<< HEAD
-figure img{
- height: 7rem;
- width: 6rem;
-=======
+
+
     .logo img{
         margin-left: 8rem;
     }
@@ -139,7 +128,6 @@ figure img{
     }
  #searchForm {
 width: 400px;
->>>>>>> e451e65ca4dc3bb279f3cce9ed7e14c735d88269
  position: relative;
  top: -1.5rem;
  right: -1.3rem;
@@ -834,7 +822,7 @@ font-size: 2rem;}
   
    
      #searchForm {
-      width: 450px;
+      width: 350px;
        position: relative;
        left: 60%;
        top: calc(3rem + 10px);
@@ -926,6 +914,7 @@ font-size: 1.5rem;}
   .brick-text p{
     margin-bottom: 3rem;
   }
+
     #searchForm {
       width: 300px;
        position: relative;
@@ -1039,16 +1028,13 @@ font-size: 1.5rem;}
     color: white;
     font-size: 16px;
    position: relative;
-margin-left: 70%;
+    margin-left: 70%;
     padding: 10px 20px;
     margin-top: 20px;
     cursor: pointer;
     border-radius: 5px;
     font-size: 1.5rem;
-<<<<<<< HEAD
-    width: 20%;
-=======
-    
+    width: 20%;  
 }
 .wrapper button:hover{
     transform: scale(1.02) 
@@ -1315,17 +1301,13 @@ gap: 1rem;
 @media (max-width: 722px) {
   .checkbtn{
   display: block;
->>>>>>> e451e65ca4dc3bb279f3cce9ed7e14c735d88269
  
   }
   .wrapper button:hover{
     transform: scale(1.02) 
   }
-
-<<<<<<< HEAD
  
 }
-=======
   .topMenu ul li{
      
       margin: 50px 0;
@@ -1357,14 +1339,10 @@ height: 100px;
       transform: rotate(135deg);
   }
   #searchForm {
-    position: absolute;
+    position: relative;
     z-index: 100;
     top: 11px;
     right: 16px;
     flex-grow: 0;}
 }
 
-        
-          
-       
->>>>>>> e451e65ca4dc3bb279f3cce9ed7e14c735d88269
