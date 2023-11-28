@@ -7,5 +7,5 @@
 </ul>
 <ul>
   <h2>Java Script</h2>
-  <li><a href= ""https:nailaalissa.github.io/javascript/"/>Week02</li>
+  <li><a href= "nailaalissa.github.io/javascript/week02-js1.js"/>Week02</li>
 </ul>
