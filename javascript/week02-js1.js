@@ -1,19 +1,25 @@
+//1-Write a console.log statement saying "Hello World!" in language that I know
 console.log('Hello World !')
-console.log('Halo, dunia!')
-console.log('Ciao, mondo')
-console.log('Hola, mundo!')
+console.log('Guten Morgen!')
+console.log('Sabah Alkir')
+console.log('God moron!')
+//2-solution for the error
 console.log('I\'m awesome');
+//3-Declare a variable x and initialize it with log statement
 let x
 console.log("the value of my variable x will be: undefined")
 console.log(x)
+// add  value with an integer
 x=15
 console.log("the value of my variable x will be: number")
 console.log("the value of my variable x will be:", x, "and the tye of x is", typeof(x))
+//4- Declare a variable y and assign a string to it.
 let y ="This is a String"
 console.log("the value of my string is:", y)
 console.log(y)
 y="This is a new string for y"
 console.log("the value of my string x will be:", y, "and the tye of x is", typeof(y))
+//5- round the number 7.25, to the nearest integer
 console.log(Math.round(7.25))
 let z=7.25
 let a=Math.round(z)
@@ -59,7 +65,7 @@ compareTypes(variable1,variable2)
 compareTypes(variable4,variable3)
 compareTypes(variable1,variable5)
 compareTypes(variable3,variable6)
-// 9 test what % does
+// 9-test what % does
 let b=7
 console.log("value of b:", b)
 console.log("New value of b :", b %=3)
