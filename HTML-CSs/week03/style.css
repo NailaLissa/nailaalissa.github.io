@@ -111,7 +111,7 @@ figure {
   text-decoration: none;
     }
     a.active,a:hover{
-        transition: 0,5s;
+        transition: 0.5s;
 
     }
    
@@ -128,7 +128,7 @@ figure {
     }
  #searchForm {
 width: 400px;
- position: relative;
+position: relative;
  top: -1.5rem;
  right: -1.3rem;
     }
@@ -1346,10 +1346,4 @@ height: 100px;
     flex-grow: 0;}
 }
 
-<<<<<<< HEAD
-        
-          
-       
 
-=======
->>>>>>> f2d8ff0972b62cb716115f7ff2decc0e5a841a64
