@@ -8,5 +8,5 @@
 <ul>
   <h2>Java Script</h2>
   <li><a href= "nailaalissa.github.io/javascript/JavaScript1/Week02/"/>Week02</li>
-  <li><a href= "nailaalissa.github.io/javascript/JavaScript1/Week03/"/>Week03</li>
+  <li><a href= "nailaalissa.github.io/javascript/JavaScript1/Week03/index.html"/>Week03</li>
 </ul>
