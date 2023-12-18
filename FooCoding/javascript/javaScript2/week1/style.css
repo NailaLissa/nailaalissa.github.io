@@ -1,0 +1,210 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:wght@100;300;400;500;700&display=swap');
+
+/* style.css */
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html{
+   background-color: whitesmoke;
+}
+body {
+  font-family: Arial, sans-serif;
+  width: 90%;
+  margin: auto;
+  align-items: center;
+  border: 1px solid black;
+   background-color: rgba(163, 163, 163, 0.274);
+}
+header{
+  margin-top: 3rem;
+}
+
+header h1{
+  text-align: center;
+  padding: 1rem;
+   font-size: 3em;
+  margin-bottom: 10px;
+  color: #2A3380;
+
+}
+.animation{
+  float:right;
+  margin: 1rem;
+
+}
+header p{
+ font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+ padding-left: 4rem;
+
+ padding-bottom: 2rem;
+}
+h1{
+ margin-left: 4rem;
+ padding: 1rem 2rem;
+}
+#bookList {
+  list-style-type: none;
+  width: 50%;
+  margin-left: 5rem;
+  box-shadow: 5px 10px 8px 10px #888888;
+  /* border: 1px solid black; */
+  border-radius: 5px;
+  margin-bottom: 2rem;
+}
+#bookList  ul {
+  list-style: none; 
+padding: 1rem 3rem;
+}
+#bookList li {
+  margin: 5px;
+  padding: 5px;
+
+} 
+
+#bookList li a{
+  text-decoration: none;
+  color: #2A3380;
+}
+
+#bookList li a:hover{
+  color: #F86E30;
+  font-size: 1.2rem;
+  transition: 0.5s;
+}
+.big-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content{
+   /* max-width: 100%; */
+   margin: 1rem;
+   padding: 1rem;
+   width: 90%;
+  border: 2px solid gray;
+  border-radius: 15px;
+  box-shadow: 5px 10px 8px 10px #888888;
+}
+
+.slider-wrapper{
+  position: relative;
+  max-height: 100vh;
+   
+}
+.slider-wrapper ul{
+display: grid;
+grid-template-columns: repeat(10,1fr);
+overflow-x: auto;
+gap:18px;
+scrollbar-width: none;
+margin: 30px 10px;
+list-style: none;
+padding: 0.5rem;
+margin:0 10px ;
+}
+.slider-wrapper ul::-webkit-scrollbar{
+  display: none;
+}
+.slider-wrapper ul li{
+  width: 320px;
+  object-fit: cover;
+  border: 3px solid gray;
+  padding: 0.5rem;
+  margin: 1rem 0;
+  border-radius: 15px;
+  box-shadow: 5px 10px 8px 10px #888888;
+}
+.slider-wrapper ul li:active{
+  background-color: #f86f302c;
+}
+.textbox{
+padding: 1rem;
+margin-bottom: 1rem;
+}
+
+.slider-wrapper ul li h2{
+  color: #2A3380;
+  padding: 1rem 0;
+  border-radius: 10px;
+   /* border: 2px solid  #F86E30;
+  box-shadow:  5px 5px 8px 10px #f86f3041 inset; */
+}
+.slider-wrapper ul li h2:hover{
+  color: #2A3380;
+  font-size: 1.5rem;
+  transition: 0.5s ;
+}
+
+img {
+  border: 3px solid gray;
+   width: 250px;
+  height: 350px;
+  object-fit: cover;
+ margin-top: 1rem;
+}
+.textbox h2,
+.textbox p{
+  font-weight: bold; 
+  padding-bottom: 10px; 
+}
+.selected{
+  background-color:#f86f3023;
+}
+ 
+
+
+.slid-button{
+  height: 50px;
+  width: 50px;
+  top: 50%;
+  color: #fff;
+  background-color:  #2A3380;
+  font-size: 2.2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  position: absolute;
+  transform: translateY(-50%);
+}
+.slid-button#left{
+  left:-20px;
+
+}
+.slid-button#right{
+  right:-20px;
+}
+.slid-button:hover{
+  background-color: #F86E30;
+}
+@media (max-width:850px) {
+  .slider-wrapper{
+   min-height: auto;
+   
+}
+#bookList{
+  width: 90%;
+}
+#bookList ul{
+  padding: 10px;
+}
+  .animation{
+    display: none;
+  }
+  #bookList{
+ margin-left: auto;
+ margin-right: auto;
+  }
+  p,h1,h2{
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+
+}
