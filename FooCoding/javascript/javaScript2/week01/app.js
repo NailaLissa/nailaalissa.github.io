@@ -116,20 +116,29 @@
 
   // 1.7 object with book IDs and corresponding image paths
   const bookCovers = {
-    the_alchemist: './img/alchemist.jpg',
-    the_strong_woman: './img/woman.jpg',
-    chaos_of_the_senses: './img/sense.jpg',
-    the_great_gatsby: './img/gatsby.jpg',
-    memory_in_the_flesh: './img/memory.jpg',
-    night_or_a_lifetime: './img/lieben.jpg',
-    the_prophet: './img/the-prophet.jpg',
-    the_hobbit: './img/hobbit.jpg',
-    the_catcher_in_the_rye: './img/rye.jpg',
-    the_da_vinci_code: './img/davinci.jpg',
+    the_alchemist: './img/the_alchemist.jpg',
+    the_strong_woman: './img/the_strong_woman.jpg',
+    chaos_of_the_senses: './img/chaos_of_the_senses.jpg',
+    the_great_gatsby: './img/the_great_gatsby.jpg',
+    memory_in_the_flesh: './img/memory_in_the_flesh.jpg',
+    night_or_a_lifetime: './img/night_or_a_lifetime.jpg',
+    the_prophet: './img/the_prophet.jpg',
+    the_hobbit: './img/the_hobbit.jpg',
+    the_catcher_in_the_rye: './img/the_catcher_in_the_rye.jpg',
+    the_da_vinci_code: './img/the_da_vinci_code.jpg',
   };
+
+  // function coversImage(bookTitles) {
+  //   let bookCovers = {};
+  //   for (let i of bookTitles) {
+  //     bookCovers[i] = `./img/${i}.jpg`;
+  //   }
+  //   return bookCovers;
+  // }
 
   // Function to add book covers to corresponding li elements
   function addBookCoversToLi() {
+    // let bookCovers = coversImage(bookTitles);
     for (const bookId of Object.keys(bookCovers)) {
       const coverImage = document.createElement('img');
       coverImage.src = bookCovers[bookId];
@@ -147,7 +156,7 @@
 
   // create a function to heilight selected book
 
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     const bookLinks = document.querySelectorAll('.book-link');
 
     function highlightBookBox() {
@@ -168,7 +177,7 @@
     }
 
     // Attach click event listeners to each book link
-    bookLinks.forEach(function(link) {
+    bookLinks.forEach(function (link) {
       link.addEventListener('click', highlightBookBox);
     });
   });
@@ -178,7 +187,7 @@
     const imgeList = document.querySelector('#bookList1 .container');
     const slideButtons = document.querySelectorAll('#bookList1 .slid-button');
 
-    slideButtons.forEach(button => {
+    slideButtons.forEach((button) => {
       button.addEventListener('click', () => {
         const direction = button.id === 'left' ? -1 : 1;
         const scrollAmount = imgeList.clientWidth * direction;
