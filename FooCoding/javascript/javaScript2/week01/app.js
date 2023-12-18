@@ -128,17 +128,11 @@
     the_da_vinci_code: './img/the_da_vinci_code.jpg',
   };
 
-  // function coversImage(bookTitles) {
-  //   let bookCovers = {};
-  //   for (let i of bookTitles) {
-  //     bookCovers[i] = `./img/${i}.jpg`;
-  //   }
-  //   return bookCovers;
-  // }
+
 
   // Function to add book covers to corresponding li elements
   function addBookCoversToLi() {
-    // let bookCovers = coversImage(bookTitles);
+  
     for (const bookId of Object.keys(bookCovers)) {
       const coverImage = document.createElement('img');
       coverImage.src = bookCovers[bookId];
