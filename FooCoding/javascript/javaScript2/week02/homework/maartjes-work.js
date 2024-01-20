@@ -52,7 +52,7 @@ function computeEarnings(tasks, hourlyRate) {
     .map(task => task.duration / 60)
     .filter(duration => duration >= 2)
     .map(duration => duration * hourlyRate)
-    .reduce((prev, curr) => prev + curr, 0);
+    .reduce((accumulator, current) => accumulator + current, 0);
 
   return totalEarnings;
 }
