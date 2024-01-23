@@ -13,7 +13,7 @@
   <ul>
   <li><a href= "https://nailaalissa.github.io/FooCoding/javascript/javaScript2/week01/index.html">Week01</a></li>
   <li><a href= "https://nailaalissa.github.io/FooCoding/javascript/javaScript2/week02/homework/index.html">Week02</a></li>
-   <li><a href= "https://nailaalissa.github.io/FooCoding/javascript/javaScript2//Week03">Week03</a></li>
+   <li><a href= "https://nailaalissa.github.io/FooCoding/javascript/javaScript2//Week03/homework">Week03</a></li> 
 
  
 
