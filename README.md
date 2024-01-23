@@ -16,6 +16,9 @@
    <li><a href= "https://nailaalissa.github.io/FooCoding/javascript/javaScript2//Week03//homework/">Week03</a></li> 
 
 
+## JavaScript2 Week03
+
+[Link to Week03 Folder](https://nailaalissa.github.io/FooCoding/javascript/javaScript2/Week03/homework/)
 
  
 
