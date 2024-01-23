@@ -15,16 +15,17 @@ function fetchPokemonData() {
 const pokemonDataString = fetchPokemonData();
 const pokemonData = JSON.parse(pokemonDataString);
 const spritsObject = pokemonData.sprites;
-console.log(spritsObject);
-for (const key in spritsObject) {
-  console.log(spritsObject[key])
-  if (spritsObject[key]) {
-    const img = document.createElement('img');
-    img.src = spritsObject[key] ;
-    document.body.appendChild(img);
-    img.style.width = '250px';
-  }
-}
+// with use object methods 
+// console.log(spritsObject);
+// for (const key in spritsObject) {
+//   console.log(spritsObject[key])
+//   if (spritsObject[key]) {
+//     const img = document.createElement('img');
+//     img.src = spritsObject[key] ;
+//     document.body.appendChild(img);
+//     img.style.width = '250px';
+//   }
+// }
 function displayPokemon(obj) {
   const extractSpriteURLs = Object.values(obj).filter(value => value !== null);
  // console.log(extractSpriteURLs);
