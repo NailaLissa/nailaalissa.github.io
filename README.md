@@ -14,11 +14,11 @@
   <li><a href= "https://nailaalissa.github.io/FooCoding/javascript/javaScript2/week01/index.html">Week01</a></li>
   <li><a href= "https://nailaalissa.github.io/FooCoding/javascript/javaScript2/week02/homework/index.html">Week02</a></li>
    <li><a href= "https://nailaalissa.github.io/FooCoding/javascript/javaScript2/Week03/homework/">Week03</a></li> 
-
-
 ## JavaScript2 Week03
 
-[Link to Week03 Folder](https://nailaalissa.github.io/FooCoding/javascript/javaScript2/Week03/homework/)
+[Link to Week03 Folder](https://raw.githubusercontent.com/nailaalissa/FooCoding/master/javascript/javaScript2/Week03/homework/)
+
+
 
 
  
