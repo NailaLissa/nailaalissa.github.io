@@ -2,9 +2,9 @@
 
 function createBase(base) {
   console.log(base);
-  return function(num) {
+  return addSix(num) {
     return base + num;
-  };
+  } return addSix;
 }
 
 const addSix = createBase(6);
