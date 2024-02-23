@@ -1,3 +1,8 @@
+Foocoding Stuff Repository
+Welcome to the Foocoding Stuff repository! This is a collection of homework assignments and projects created during my time in the Foocoding Class.
+
+ 
+ 
  <h2> HTML-CSS</h2>
 <ul>
 <li><a href="https://nailaalissa.github.io/FooCoding/HTML-CSs/week01/">Week01</a></li>
