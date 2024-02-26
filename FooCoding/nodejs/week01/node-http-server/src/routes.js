@@ -5,6 +5,34 @@ const postsPath = './src/data/posts.json';
 let users = [];
 let posts = [];
 
+let deletedIds = [];
+const getIds = (items) => {
+  return items.map((item) => item.id);
+};
+///// Generate Unique Id///////
+const generateUniqueId = (newid, itemdsIds) => {
+  let itemsId = itemdsIds;
+  let newId = itemsId.find((id) => id === newid);
+  let idDeleted = deletedIds.find((id) => newid === id);
+
+  if (!newId && !idDeleted) {
+    return parseInt(newid);
+  } else if (idDeleted && !newId) {
+    if (idDeleted >= newid) {
+      let x = parseInt(idDeleted) + 1;
+      return x;
+    } else {
+      return newid;
+    }
+  }
+  return newid;
+};
+
+const markIdAsDeleted = (id) => {
+  deletedIds.push(id);
+};
+
+//////////////////////////
 const readDataFromFile = async (filePath) => {
   try {
     const data = await fs.readFile(filePath, 'utf-8');
@@ -25,14 +53,28 @@ export const initializeData = async () => {
   }
 };
 
-//initializeData();
+initializeData();
+
+//////////////////////
 
 const saveUsersToFile = () => {
   fs.writeFile('./src/data/users.json', JSON.stringify(users), (error) => {
+    // if (error) {
+    //   console.error(error);
+    // } else {
+    //   console.log(' data saved successfully');
+    // }
+
     if (error) {
-      console.error(error);
+      console.error('Error saving users data:', error);
+      res.writeHead(500, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ message: 'Internal Server Error' }));
     } else {
-      console.log(' data saved successfully');
+      console.log('Data saved successfully');
+
+      res.setHeader('Content-Type', 'application/json');
+      res.statusCode = 201;
+      res.end(JSON.stringify({ message: `New Item with ${newUser.id} Created successfully` }));
     }
   });
 };
@@ -49,11 +91,11 @@ const savePostsToFile = () => {
 
 //////// Get All Users/Posts////////////
 const getAllItems = (req, res, items) => {
-  try {
+  if (items.length > 0) {
     res.setHeader('Content-Type', 'application/json');
     res.statusCode = 200;
     res.end(JSON.stringify({ items }));
-  } catch {
+  } else {
     res.writeHead(400, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ message: `Data not found` }));
   }
@@ -64,48 +106,72 @@ const getItemById = (req, res, items) => {
   const itemId = parseInt(req.params.id);
   const item = items.find((item) => item.id === itemId);
 
-  if (item) {
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify(item));
-  } else {
-    res.writeHead(404, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ message: `Data with ID ${itemId} not found` }));
-  }
-};
-
-////////// Create New User/Post///////
-const createItem = (req, res, items, saveDataFunction) => {
-  const newItem = req.body;
-  if (!newItem || Object.keys(newItem).length === 0) {
-    res.writeHead(400, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ message: 'Invalid data. Body cannot be empty.' }));
-    return;
-  }
-  newItem.id = items.length + 1;
-
-  items.push({ id: newItem.id, ...newItem });
-  saveDataFunction();
-  res.setHeader('Content-Type', 'application/json');
-  res.statusCode = 201;
-  res.end(JSON.stringify({ message: 'New Item Created successfully' }));
-};
-////////// Update User/Post By Id///////
-const patchItem = (req, res, items, saveDataFunction) => {
-  const itemId = parseInt(req.params.id);
-  let item = items.find((item) => item.id === itemId);
-
   if (!item) {
     res.writeHead(404, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ message: `Data with ID ${itemId} not found` }));
     return;
   }
-  const itemIndex = items.findIndex((item) => item.id === itemId);
-  const updateFields = req.body;
-  items[itemIndex] = { ...items[itemIndex], ...updateFields };
-  saveDataFunction();
-  res.writeHead(200, { 'Content-Type': 'application/json' });
-  res.end(JSON.stringify({ message: `Data with ID ${itemId} updated successfully` }));
+  if (items === users) {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    const { password, ...rest } = item;
+    res.end(JSON.stringify(rest));
+  } else {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+
+    res.end(JSON.stringify(item));
+  }
 };
+
+//////////// Create new User//////
+const createUser = (req, res) => {
+  const newUser = req.body;
+  if (!newUser || !newUser.name || !newUser.email || !newUser.password) {
+    res.writeHead(400, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ message: 'Invalid data. Body cannot be empty.' }));
+    return;
+  }
+  const emailExists = users.find((user) => user.email === newUser.email);
+  if (emailExists) {
+    res.writeHead(400, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ message: `User with email ${newUser.email} is already Exist` }));
+    return;
+  }
+  let usersIds = getIds(users);
+  let lastUsedId = Math.max(...usersIds);
+  // Generate a new unique ID
+  let newUserId = generateUniqueId(lastUsedId + 1, usersIds);
+  newUser.id = newUserId;
+  users.push({ id: newUserId, ...newUser });
+  saveUsersToFile();
+  res.setHeader('Content-Type', 'application/json');
+  res.statusCode = 201;
+  res.end(JSON.stringify({ message: `New User with ${newUser.id} Created successfully` }));
+};
+////////// Update User/Post By Id///////
+const patchUser = (req, res) => {
+  const userId = parseInt(req.params.id);
+  let user = users.find((user) => user.id === userId);
+
+  if (!user) {
+    res.writeHead(404, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ message: `User with ID ${userId} not found` }));
+    return;
+  }
+  const emailExists = users.find((user) => user.email === req.body.email);
+  if (emailExists) {
+    res.writeHead(400, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ message: `User with email ${req.body.email} is already Exist` }));
+    return;
+  }
+
+  const userIndex = users.findIndex((user) => user.id === userId);
+  const updateFields = req.body;
+  users[userIndex] = { ...users[userIndex], ...updateFields };
+  saveUsersToFile();
+  res.writeHead(200, { 'Content-Type': 'application/json' });
+  res.end(JSON.stringify({ message: `User with ID ${userId} updated successfully` }));
+};
+
 ////////// Delete User/Post By Id///////
 const deleteItem = (req, res, items, saveDataFunction) => {
   const itemId = parseInt(req.params.id);
@@ -113,11 +179,12 @@ const deleteItem = (req, res, items, saveDataFunction) => {
   const itemIndex = items.findIndex((item) => item.id === itemId);
   if (itemIndex !== -1) {
     items.splice(itemIndex, 1);
+    markIdAsDeleted(itemId);
     res.writeHead(200, { 'Content-Type': 'application/json' });
     saveDataFunction();
     res.end(
       JSON.stringify({
-        message: `User with ID ${itemId} Deleted successfully`,
+        message: `Data with ID ${itemId} Deleted successfully`,
       }),
     );
   } else {
@@ -126,205 +193,56 @@ const deleteItem = (req, res, items, saveDataFunction) => {
   }
 };
 
-////////// Update User/Post By Id///////
-const putItem = (req, res, items, saveDataFunction) => {
-  const itemId = parseInt(req.params.id);
-  const item = items.find((item) => item.id === itemId);
-
-  if (item) {
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    const updateFields = req.body;
-    Object.assign(item, updateFields);
-    saveDataFunction();
-    res.end(
-      JSON.stringify({
-        message: `Data with ID ${itemId} updated successfully`,
-      }),
-    );
-  } else {
-    res.writeHead(404, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ message: `User with ID ${itemId} not found` }));
-  }
-};
-
-//////// Get Post By User Id////////////
-const getPostByUserId = (req, res, items) => {
-  const userId = parseInt(req.params.id);
-  const getUser = users.find((user) => userId === user.id);
-
-  if (getUser) {
-    const userPosts = items.filter((post) => post.userId === getUser.id);
-
-    if (userPosts.length > 0) {
-      res.writeHead(200, { 'Content-type': 'application/json' });
-      res.end(JSON.stringify(userPosts));
-      return;
-    } else {
-      res.writeHead(404, { 'Content-type': 'application/json' });
-      res.end(JSON.stringify({ message: "This user don't have any posts" }));
-      return;
-    }
-  }
-
-  res.writeHead(400, { 'Content-type': 'application/json' });
-  res.end(JSON.stringify({ message: 'User not found' }));
-};
-
-////////// Create New Post by UserId///////
-const createPostByUserId = (req, res, items, saveDataFunction) => {
-  const newItem = req.body;
-  let status = 400;
-  let message = 'Item not found';
-
-  if (!newItem || Object.keys(newItem).length === 0) {
-    res.writeHead(400, { 'Content-type': 'application/json' });
+////////// Create New User/Post///////
+const createPost = (req, res) => {
+  const newPost = req.body;
+  if (!newPost || Object.keys(newPost).length === 0) {
+    res.writeHead(400, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ message: 'Invalid data. Body cannot be empty.' }));
     return;
   }
+  let PostsIds = getIds(posts);
+  let lastUsedId = Math.max(...PostsIds);
+  // Generate a new unique ID
+  let postId = generateUniqueId(lastUsedId + 1, PostsIds);
 
-  newItem.id = items.length + 1;
-  newItem.userId = parseInt(req.params.id);
-  items.push({ id: newItem.id, userId: newItem.userId, ...newItem });
-  saveDataFunction();
-  status = 201;
-  message = 'New Post Created successfully';
-
-  res.writeHead(status, { 'Content-type': 'application/json' });
-  res.end(JSON.stringify({ message }));
+  newPost.id = postId;
+  posts.push({ id: postId, ...newPost });
+  savePostsToFile();
+  res.setHeader('Content-Type', 'application/json');
+  res.statusCode = 201;
+  res.end(JSON.stringify({ message: `New Post with ID ${postId} Created successfully` }));
 };
+//////////Patch Post //////
+const patchPost = (req, res) => {
+  const postId = parseInt(req.params.id);
+  let post = posts.find((post) => post.id === postId);
 
-////////// Delete Post By UserId///////
-const deletePostByUserID = (req, res, items, saveDataFunction) => {
-  const itemId = parseInt(req.params.id);
-  const postId = parseInt(req.body.id);
+  if (!post) {
+    res.writeHead(404, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ message: `Post with ID ${postId} not found` }));
+    return;
+  }
+
+  const postIndex = posts.findIndex((post) => post.id === postId);
   const updateFields = req.body;
-  const getUser = users.find((user) => itemId === user.id);
-
-  if (getUser) {
-    const getUserPosts = items.filter((post) => post.userId === getUser.id);
-
-    if (getUserPosts.length > 0) {
-      if (postId) {
-        // Delete a specific post
-        const postIndex = items.findIndex((item) => item.id === postId);
-
-        if (postIndex !== -1) {
-          items.splice(postIndex, 1);
-          saveDataFunction();
-          res.writeHead(200, { 'Content-Type': 'application/json' });
-          res.end(
-            JSON.stringify({
-              message: `Post ${postId} for User ID ${itemId} deleted successfully`,
-            }),
-          );
-        } else {
-          res.writeHead(404, { 'Content-Type': 'application/json' });
-          res.end(JSON.stringify({ message: `Post ${postId} not found for User ID ${itemId}` }));
-        }
-      } else {
-        // Delete all posts for a specific user
-        const postsToDelete = items.filter((post) => post.userId === itemId);
-
-        if (postsToDelete.length > 0) {
-          postsToDelete.forEach((post) => {
-            const postIndex = items.findIndex((item) => item.id === post.id);
-            items.splice(postIndex, 1);
-          });
-
-          saveDataFunction();
-          res.writeHead(200, { 'Content-Type': 'application/json' });
-          res.end(
-            JSON.stringify({
-              message: `Posts for User ID ${itemId} deleted successfully`,
-            }),
-          );
-        } else {
-          res.writeHead(404, { 'Content-Type': 'application/json' });
-          res.end(JSON.stringify({ message: `No posts found for User ID ${itemId}` }));
-        }
-      }
-    } else {
-      res.writeHead(404, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({ message: `Posts for User ID ${itemId} not found` }));
-    }
-  } else {
-    res.writeHead(404, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ message: `User with ID ${itemId} not found` }));
-  }
+  posts[postIndex] = { ...posts[postIndex], ...updateFields };
+  savePostsToFile();
+  res.writeHead(200, { 'Content-Type': 'application/json' });
+  res.end(JSON.stringify({ message: `Post with ID ${postId} updated successfully` }));
 };
-
-/////////////////////////Update Specific post by UserID Or All Posts /////
-
-const patchPostByUserId = (req, res, items, saveDataFunction) => {
-  const itemId = parseInt(req.params.id);
-  const getUser = users.find((user) => itemId === user.id);
-
-  if (getUser) {
-    const getUserPosts = posts.filter((post) => post.userId === getUser.id);
-    const postId = parseInt(req.body.id);
-    const updateFields = req.body;
-
-    if (getUserPosts.length > 0) {
-      if (postId) {
-        ///////////update spicific post//////
-        const getPost = getUserPosts.find((post) => post.id === postId);
-        Object.assign(getPost, updateFields);
-        saveDataFunction();
-        res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(
-          JSON.stringify({
-            message: `Post ${postId}  for User ID${itemId} updated successfully`,
-          }),
-        );
-      } else {
-        ///////////update all posts ////////
-        getUserPosts.forEach((post) => Object.assign(post, updateFields));
-        saveDataFunction();
-        res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(
-          JSON.stringify({
-            message: `Posts for User ID ${itemId} updated successfully`,
-          }),
-        );
-      }
-    } else {
-      res.writeHead(404, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({ message: `Posts for User ID ${itemId} not found` }));
-    }
-  } else {
-    res.writeHead(404, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ message: `User with ID ${itemId} not found` }));
-  }
-};
-
 //////////// Users ////////////////
 defineRoute('GET', '/users', (req, res) => getAllItems(req, res, users));
 defineRoute('GET', '/users/:id', (req, res) => getItemById(req, res, users));
-defineRoute('POST', '/users', (req, res) => createItem(req, res, users, saveUsersToFile));
-defineRoute('PATCH', '/users/:id', (req, res) => patchItem(req, res, users, saveUsersToFile));
-defineRoute('PUT', '/users/:id', (req, res) => putItem(req, res, users, saveUsersToFile));
+defineRoute('POST', '/users', (req, res) => createUser(req, res));
+defineRoute('PATCH', '/users/:id', (req, res) => patchUser(req, res));
 defineRoute('DELETE', '/users/:id', (req, res) => deleteItem(req, res, users, saveUsersToFile));
 
 //////////// Posts////////////////
 defineRoute('GET', '/posts', (req, res) => getAllItems(req, res, posts));
 defineRoute('GET', '/posts/:id', (req, res) => getItemById(req, res, posts));
-defineRoute('POST', '/posts', (req, res) => createItem(req, res, posts, savePostsToFile));
-defineRoute('PATCH', '/posts/:id', (req, res) => patchItem(req, res, posts, savePostsToFile));
-defineRoute('PUT', '/posts/:id', (req, res) => putItem(req, res, posts, savePostsToFile));
+defineRoute('POST', '/posts', (req, res) => createPost(req, res));
+defineRoute('PATCH', '/posts/:id', (req, res) => patchPost(req, res));
 defineRoute('DELETE', '/posts/:id', (req, res) => deleteItem(req, res, posts, savePostsToFile));
-
-/////////////////Posts By UserId/////////
-defineRoute('POST', '/posts/posts-by-user/:id', (req, res) =>
-  createPostByUserId(req, res, posts, savePostsToFile),
-);
-defineRoute('GET', '/posts/posts-by-user/:id', (req, res) => getPostByUserId(req, res, posts));
-
-defineRoute('PATCH', '/posts/posts-by-user/:id', (req, res) =>
-  patchPostByUserId(req, res, posts, savePostsToFile),
-);
-
-defineRoute('DELETE', '/posts/posts-by-user/:id', (req, res) =>
-  deletePostByUserID(req, res, posts, savePostsToFile),
-);
 
 export default router;
