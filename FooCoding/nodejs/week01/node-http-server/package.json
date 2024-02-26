@@ -13,6 +13,7 @@
   "author": "Álvaro José Agámez Licha",
   "license": "MIT",
   "dependencies": {
-    "urlpattern-polyfill": "^10.0.0"
+    "urlpattern-polyfill": "^10.0.0",
+    "uuid": "^9.0.1"
   }
 }
