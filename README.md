@@ -24,7 +24,4 @@ Welcome to the Foocoding Stuff repository! This is a collection of homework assi
   <h2>Portfolio Project</h2>
   <a href= "https://nailaalissa.github.io/SPA-portfolio/">SPA-Portfolio</a>
   <h2>Node.Js</h2>
-  <ul>
-  <li><a href= "https://nailaalissa.github.io/FooCoding/nodejs/week01/node-http-server/src/routes.js">Week01</a></li>
 
-  </ul>
