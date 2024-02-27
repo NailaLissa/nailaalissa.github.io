@@ -7,34 +7,34 @@ const postsPath = './src/data/posts.json';
 let users = [];
 let posts = [];
 
-// let deletedIds = [];
-// const getIds = (items) => {
-//   return items.map((item) => item.id);
-// };
-// ///// Generate Unique Id///////
-// const generateUniqueId = (newid, itemdsIds) => {
-//   let itemsId = itemdsIds;
-//   let newId = itemsId.find((id) => id === newid);
-//   let idDeleted = deletedIds.find((id) => newid === id);
+let deletedIds = [];
+const getIds = (items) => {
+  return items.map((item) => item.id);
+};
+///// Generate Unique Id///////
+const generateUniqueId = (newid, itemdsIds) => {
+  let itemsId = itemdsIds;
+  let newId = itemsId.find((id) => id === newid);
+  let idDeleted = deletedIds.find((id) => newid === id);
 
-//   if (!newId && !idDeleted) {
-//     return parseInt(newid);
-//   } else if (idDeleted && !newId) {
-//     if (idDeleted >= newid) {
-//       let x = parseInt(idDeleted) + 1;
-//       return x;
-//     } else {
-//       return newid;
-//     }
-//   }
-//   return newid;
-// };
+  if (!newId && !idDeleted) {
+    return parseInt(newid);
+  } else if (idDeleted && !newId) {
+    if (idDeleted >= newid) {
+      let x = parseInt(idDeleted) + 1;
+      return x;
+    } else {
+      return newid;
+    }
+  }
+  return newid;
+};
 
-// const markIdAsDeleted = (id) => {
-//   deletedIds.push(id);
-// };
+const markIdAsDeleted = (id) => {
+  deletedIds.push(id);
+};
 
-//////////////////////////
+////////////////////////
 const readDataFromFile = async (filePath) => {
   try {
     const data = await fs.readFile(filePath, 'utf-8');
@@ -138,14 +138,14 @@ const createUser = (req, res) => {
     res.end(JSON.stringify({ message: `User with email ${newUser.email} is already Exist` }));
     return;
   }
-  //let usersIds = getIds(users);
-  //let usersIds = uuidv4();
-  // let lastUsedId = Math.max(...usersIds);
-  // // Generate a new unique ID
-  // let newUserId = generateUniqueId(lastUsedId + 1, usersIds);
-  //newUser.id = newUserId;
-  newUser.id = uuidv4();
-  users.push({ id: newUser.id, ...newUser });
+  let usersIds = getIds(users);
+
+  let lastUsedId = Math.max(...usersIds);
+  // Generate a new unique ID
+  let newUserId = generateUniqueId(lastUsedId + 1, usersIds);
+  newUser.id = newUserId;
+  // newUser.id = uuidv4();
+  users.push({ id: newUserId, ...newUser });
   saveUsersToFile();
   res.setHeader('Content-Type', 'application/json');
   res.statusCode = 201;
@@ -183,7 +183,7 @@ const deleteItem = (req, res, items, saveDataFunction) => {
   const itemIndex = items.findIndex((item) => item.id === itemId);
   if (itemIndex !== -1) {
     items.splice(itemIndex, 1);
-    // markIdAsDeleted(itemId);
+    markIdAsDeleted(itemId);
     res.writeHead(200, { 'Content-Type': 'application/json' });
     saveDataFunction();
     res.end(
