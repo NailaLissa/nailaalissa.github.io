@@ -9,7 +9,7 @@ const validator = require('./middleware/validate');
 router.get('/todos', controller.getAll);
 router.get('/todos/:id', controller.getById);
 router.post('/todos', validator.schema, controller.create);
-router.patch('/todos/:id', validator.schemaUpdate, controller.update);
+router.patch('/todos/:id', validator.schema, controller.update);
 router.delete('/todos/:id', controller.delete);
 
 module.exports = router;

@@ -38,10 +38,10 @@ exports.create = (req, res) => {
     const newTask = req.body;
 
     newTask.id = uuidv4();
-    tasks.push({ id: newTask.id, ...newTask });
+    tasks.push(newTask);
     // Write to the file
     file.write(tasks);
-    res.status(200).json({ message: `Task with ID ${newTask.id} created and saved` });
+    res.status(200).json(newTask);
   } catch (err) {
     //console.log(err);
     res.status(500).json({ error: 'Internal Server Error , cannt create new task' });
