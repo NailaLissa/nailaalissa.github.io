@@ -70,17 +70,14 @@ exports.delete = (req, res) => {
 // Update Task by Id
 exports.update = (req, res) => {
   const taskId = req.params.id;
-  let task = tasks.find((task) => task.id === taskId);
-
-  if (!task) {
+  //let task = tasks.find((task) => task.id === taskId);
+  const taskIndex = tasks.findIndex((task) => task.id === taskId);
+  if (!taskIndex) {
     res.status(404).json({ error: `Task with ID ${taskId} not found` });
     return;
   }
 
-  const taskIndex = tasks.findIndex((task) => task.id === taskId);
-
-  const updateFields = req.body;
-  tasks[taskIndex] = { ...tasks[taskIndex], ...updateFields };
+  tasks[taskIndex] = { ...tasks[taskIndex], ...req.body };
   // Write to the file
   file.write(tasks);
   res.status(200).json({ message: `Task with ID ${taskId} updated and saved` });
