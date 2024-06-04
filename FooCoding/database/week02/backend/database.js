@@ -19,19 +19,6 @@ export async function getCapitalOfCountry(countryName) {
   const [results] = await db_connection.execute(query, [countryName]);
   //console.log(results);
   return results;
-  // try {
-  //   const [results] = await db_connection.execute(query, [countryName]);
-  //   if (results.length) {
-  //     console.log(`The capital of ${countryName} is ${results[0].Capital}.`);
-  //   } else {
-  //     console.log(`No capital found for the country ${countryName}.`);
-  //   }
-  // } catch (err) {
-  //   console.error('There was an error:', err);
-  // } finally {
-  //   // Close the connection to free up resources
-  //   await db_connection.end();
-  // }
 }
 // query 2 : List all the languages spoken in the region Y
 export async function listLanguagesInRegion(regionName) {
